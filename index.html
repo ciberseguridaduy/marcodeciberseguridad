@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marco de Ciberseguridad</title>
-  <meta name="description" content="Próximamente: Un proyecto basado en el Marco de Ciberseguridad de Uruguay (AGESIC) para difundir y concientizar a la ciudadanía, realizado por Handshake.uy." />
+  <meta name="description" content="Próximamente: Proyecto basado en el marco de ciberseguridad de Uruguay para difundir contenidos de ciberseguridad de forma clara y accesible, empoderando a empresas y ciudadanos. Realizado por Handshake.uy." />
   <!-- Google Fonts: Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -18,7 +18,7 @@
       --button-bg: #007acc;
       --button-hover: #005f99;
     }
-    /* Variables para modo oscuro, que se activarán al añadir la clase .dark-mode al body */
+    /* Variables para modo oscuro */
     .dark-mode {
       --bg-color: #121212;
       --text-color: #ddd;
@@ -50,6 +50,7 @@
     }
     .container {
       max-width: 700px;
+      width: 100%;
     }
     h1 {
       font-size: 2.5rem;
@@ -91,7 +92,7 @@
     #darkModeToggle:hover {
       background: var(--button-hover);
     }
-    /* Responsive */
+    /* Ajustes para móviles */
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
@@ -99,38 +100,39 @@
       p {
         font-size: 1rem;
       }
+      #darkModeToggle {
+        width: 100%;
+        padding: 12px 0;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <button id="darkModeToggle">💡</button>
+    <button id="darkModeToggle">Modo Oscuro</button>
     <h1>Marco de Ciberseguridad</h1>
     <p>
-     Siendo nuestra referencia el 
+      Siendo nuestra referencia el 
       <a class="highlight" href="https://www.agesic.gub.uy" target="_blank" rel="noopener noreferrer">
         marco de ciberseguridad de Uruguay
       </a>.
       nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, 
-      empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.   
- </p>
-    <p>
-   
+      empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
+    </p>
     <footer>
-     H4NDSHAKE &copy; 2025 Marco de Ciberseguridad. <br> Todos los derechos reservados. H4NDSHAKE
+      &copy; <span id="currentYear"></span> Marco de Ciberseguridad. Todos los derechos reservados. Proyecto realizado por Handshake.uy.
     </footer>
   </div>
 
   <script>
+    // Actualiza dinámicamente el año en el footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Funcionalidad de modo oscuro/claro
     const toggleButton = document.getElementById('darkModeToggle');
     toggleButton.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      // Actualiza el texto del botón según el modo
-      if (document.body.classList.contains('dark-mode')) {
-        toggleButton.textContent = 'Modo Claro';
-      } else {
-        toggleButton.textContent = 'Modo Oscuro';
-      }
+      toggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
     });
   </script>
 </body>
