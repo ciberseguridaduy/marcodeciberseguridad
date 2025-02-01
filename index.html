@@ -17,6 +17,7 @@
       --footer-text: #777;
       --button-bg: #007acc;
       --button-hover: #005f99;
+      /* Overlay para modo claro */
       --hero-overlay: rgba(0, 0, 0, 0.5);
     }
     .dark-mode {
@@ -27,7 +28,8 @@
       --footer-text: #aaa;
       --button-bg: #66aaff;
       --button-hover: #5599dd;
-      --hero-overlay: rgba(0, 0, 0, 0.6);
+      /* Overlay para modo oscuro: más intenso */
+      --hero-overlay: rgba(0, 0, 0, 0.85);
     }
     * {
       margin: 0;
@@ -80,6 +82,12 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 0 20px;
+      transition: filter 0.3s;
+    }
+    /* Reducir brillo en modo oscuro */
+    .dark-mode .hero {
+      filter: brightness(0.8);
     }
     .hero::before {
       content: "";
@@ -95,6 +103,7 @@
       margin: 0 auto;
       padding: 20px;
       color: #fff;
+      text-align: center;
     }
     .hero h1 {
       font-size: 3rem;
@@ -132,6 +141,11 @@
       }
       .hero p {
         font-size: 1rem;
+        margin-bottom: 30px;
+      }
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -144,7 +158,7 @@
     <div class="hero-content">
       <h1>Marco de Ciberseguridad</h1>
       <p>
-        Siendo nuestra referencia el <a class="highlight" href="https://www.agesic.gub.uy" target="_blank" rel="noopener noreferrer">marco de ciberseguridad de Uruguay</a>. Nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
+        Siendo nuestra referencia el <a class="highlight" href="https://www.agesic.gub.uy" target="_blank" rel="noopener noreferrer">marco de ciberseguridad de Uruguay</a>, nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
       </p>
       <button class="cta-button">¡Súmate y Colabora!</button>
     </div>
