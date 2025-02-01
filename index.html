@@ -8,30 +8,29 @@
   <!-- Google Fonts: Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Variables y configuraciones generales para modo claro */
+    /* Variables para modo claro */
     :root {
-      --bg-color: #f7f7f7;
-      --text-color: #333;
-      --heading-color: #222;
-      --highlight-color: #007acc; /* color de enlace en modo claro */
-      --footer-text: #777;
-      --button-bg: #000000;       /* fondo del botón en modo claro */
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --heading-color: #222222;
+      --highlight-color: #007acc; /* azul para enlaces */
+      --footer-text: #555555;
+      --button-bg: #007acc;
       --button-hover: #005f99;
-      /* Overlay para modo claro */
-      --hero-overlay: rgba(0, 0, 0, 0.5);
+      --hero-overlay: rgba(0, 0, 0, 0.3);
     }
-    /* Variables para modo oscuro – se cambian el color amarillo por celeste */
+    /* Variables para modo oscuro */
     .dark-mode {
       --bg-color: #121212;
-      --text-color: #ddd;
-      --heading-color: #fff;
-      --highlight-color: #007acc; /* nuevo color celeste para enlaces en modo oscuro */
-      --footer-text: #aaa;
-      --button-bg: #00000;       /* nuevo fondo del botón en modo oscuro */
-      --button-hover: #0097a7;    /* hover ajustado al celeste */
-      /* Overlay para modo oscuro: más intenso */
-      --hero-overlay: rgba(0, 0, 0, 0.85);
+      --text-color: #e0e0e0;
+      --heading-color: #ffffff;
+      --highlight-color: #03a9f4; /* azul más claro para contraste */
+      --footer-text: #bbbbbb;
+      --button-bg: #03a9f4;
+      --button-hover: #0288d1;
+      --hero-overlay: rgba(0, 0, 0, 0.7);
     }
+    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
@@ -52,7 +51,7 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Botón minimalista de modo oscuro/claro */
+    /* Botón para alternar modo */
     #darkModeToggle {
       position: fixed;
       top: 20px;
@@ -74,9 +73,9 @@
     #darkModeToggle:hover {
       background: var(--button-hover);
     }
-    /* Hero Section con fondo, overlay y contenido centrado */
+    /* Sección Hero */
     .hero {
-      background: url("https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
+      background: url("https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==") no-repeat center center/cover;
       height: 100vh;
       position: relative;
       display: flex;
@@ -86,15 +85,17 @@
       padding: 0 20px;
       transition: filter 0.3s;
     }
-    /* Reducir brillo en modo oscuro */
+    /* En modo oscuro se reduce el brillo de la imagen */
     .dark-mode .hero {
       filter: brightness(0.8);
     }
     .hero::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: var(--hero-overlay);
     }
     .hero-content {
@@ -127,7 +128,7 @@
     .cta-button:hover {
       background: var(--button-hover);
     }
-    /* Footer invitación a colaborar */
+    /* Footer */
     .footer {
       text-align: center;
       padding: 20px;
@@ -157,24 +158,24 @@
   <!-- Sección Hero -->
   <div class="hero">
     <div class="hero-content">
-      <h1>Proximamente</h1>
+      <h1>Próximamente</h1>
       <p>
         Utilizamos el 
         <a class="highlight" href="https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/comunicacion/publicaciones/marco-ciberseguridad" target="_blank" rel="noopener noreferrer">Marco de Ciberseguridad</a><br>
         para difundir sus contenidos de forma clara y accesible, empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
       </p>
-      <button class="cta-button" onclick="window.location.href='mailto:info@handshake.uy?subject=S%C3%BAmate%20y%20Colabora%20-%20Proyecto%20de%20Ciberseguridad'">Informate y sumate al proyecto</button>
+      <button class="cta-button" onclick="window.location.href='mailto:info@handshake.uy?subject=S%C3%BAmate%20y%20Colabora%20-%20Proyecto%20de%20Ciberseguridad'">Infórmate y súmate al proyecto</button>
     </div>
   </div>
   
-  <!-- Footer con invitación a la colaboración -->
+  <!-- Footer -->
   <div class="footer">
     <a class="highlight" href="https://www.handshake.uy" target="_blank" rel="noopener noreferrer">Proyecto impulsado por HANDSHAKE</a><br>
     ¡Súmate y colabora para hacer de la ciberseguridad una realidad para todos los Uruguayos!
   </div>
 
   <script>
-    // Funcionalidad de modo oscuro/claro
+    // Alterna entre modo claro y oscuro
     const toggleButton = document.getElementById('darkModeToggle');
     toggleButton.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
