@@ -18,23 +18,17 @@
       --button-bg: #007acc;
       --button-hover: #005f99;
       --hero-overlay: rgba(0, 0, 0, 0.3);
-      /* Variables para el toggle button en modo claro */
-      --toggle-bg: #9c27b0;       /* morado */
-      --toggle-hover: #7b1fa2;
     }
     /* Variables para modo oscuro */
     .dark-mode {
       --bg-color: #121212;
       --text-color: #e0e0e0;
       --heading-color: #ffffff;
-      --highlight-color: #03a9f4; /* azul celeste */
+      --highlight-color: #03a9f4; /* azul celeste para enlaces */
       --footer-text: #bbbbbb;
       --button-bg: #03a9f4;
       --button-hover: #0288d1;
       --hero-overlay: rgba(0, 0, 0, 0.7);
-      /* Variables para el toggle button en modo oscuro */
-      --toggle-bg: #ff5722;       /* naranja */
-      --toggle-hover: #e64a19;
     }
     /* Reset básico */
     * {
@@ -57,12 +51,12 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Botón para alternar modo (toggle) */
+    /* Botón de alternar modo (toggle) - fondo siempre negro */
     #darkModeToggle {
       position: fixed;
       top: 20px;
       right: 20px;
-      background: var(--toggle-bg);
+      background: #000000;
       border: none;
       color: #fff;
       width: 40px;
@@ -77,11 +71,11 @@
       z-index: 1000;
     }
     #darkModeToggle:hover {
-      background: var(--toggle-hover);
+      background: #000000; /* permanece negro en hover */
     }
     /* Sección Hero */
     .hero {
-      background: url("https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==") no-repeat center center/cover;
+      background: url("https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
       height: 100vh;
       position: relative;
       display: flex;
