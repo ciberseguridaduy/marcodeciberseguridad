@@ -41,16 +41,13 @@
       font-family: 'Montserrat', sans-serif;
       background: var(--bg-color);
       color: var(--text-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 20px;
       text-align: center;
       transition: background 0.3s, color 0.3s;
     }
     .container {
       max-width: 700px;
-      width: 100%;
+      margin: 0 auto;
     }
     h1 {
       font-size: 2.5rem;
@@ -77,17 +74,24 @@
       font-size: 0.875rem;
       color: var(--footer-text);
     }
-    /* Botón de modo oscuro/claro */
+    /* Botón de modo oscuro/claro minimalista */
     #darkModeToggle {
-      cursor: pointer;
+      position: fixed;
+      top: 10px;
+      right: 10px;
       background: var(--button-bg);
       border: none;
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 1rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
       transition: background 0.3s;
-      margin-bottom: 1.5rem;
+      z-index: 1000;
     }
     #darkModeToggle:hover {
       background: var(--button-hover);
@@ -100,26 +104,23 @@
       p {
         font-size: 1rem;
       }
-      #darkModeToggle {
-        width: 100%;
-        padding: 12px 0;
-      }
     }
   </style>
 </head>
 <body>
+  <button id="darkModeToggle" aria-label="Alternar modo oscuro/ligero">🌙</button>
   <div class="container">
-    <button id="darkModeToggle">💡</button>
-    <h1>PROXIMAMENTE</h1> <h2>marco de ciberseguridad</h2>
+    <h1>Marco de Ciberseguridad</h1>
     <p>
       Siendo nuestra referencia el 
       <a class="highlight" href="https://www.agesic.gub.uy" target="_blank" rel="noopener noreferrer">
-        marco de ciberseguridad
-      </a> nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, 
+        marco de ciberseguridad de Uruguay
+      </a>.
+      nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, 
       empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
     </p>
     <footer>
-      &copy; <span id="currentYear"></span> Marco de Ciberseguridad. Todos los derechos reservados.
+      &copy; <span id="currentYear"></span> Marco de Ciberseguridad. Todos los derechos reservados. Proyecto realizado por Handshake.uy.
     </footer>
   </div>
 
@@ -131,7 +132,8 @@
     const toggleButton = document.getElementById('darkModeToggle');
     toggleButton.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      toggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
+      // Cambiar el icono según el modo actual: 🌙 para modo claro, ☀️ para modo oscuro
+      toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
   </script>
 </body>
