@@ -48,7 +48,7 @@
       max-width: 700px;
       margin: 0 auto;
       padding: 0 20px;
-      text-align: left; /* Alineación izquierda para mejorar la lectura en móvil */
+      text-align: left;
     }
     h1 {
       font-size: 2.5rem;
@@ -77,6 +77,8 @@
       font-size: 0.875rem;
       color: var(--footer-text);
       text-align: center;
+      padding: 10px 0;
+      border-top: 1px solid var(--footer-text);
     }
     /* Botón de modo oscuro/claro minimalista */
     #darkModeToggle {
@@ -124,13 +126,13 @@
       Nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
     </p>
     <footer>
-      &copy; <span id="currentYear"></span> Marco de Ciberseguridad. Todos los derechos reservados. Proyecto realizado por Handshake.uy.
+      Proyecto impulsado por Handshake.uy – ¡Súmate y colabora para hacer de la ciberseguridad una realidad para todos!
     </footer>
   </div>
 
   <script>
-    // Actualiza dinámicamente el año en el footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    // Actualiza dinámicamente el año en el footer si lo deseas en algún momento:
+    // document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     // Funcionalidad de modo oscuro/claro
     const toggleButton = document.getElementById('darkModeToggle');
