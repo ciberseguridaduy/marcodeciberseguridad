@@ -4,10 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marcó de Ciberseguridad</title>
-  <meta name="description" content="Próximamente lanzaremos nuestro proyecto de ciberseguridad." />
-  <!-- Google Fonts: Utilizamos una fuente moderna -->
+  <meta name="description" content="Próximamente: Un proyecto basado en el Marco de Ciberseguridad de Uruguay (AGESIC) para difundir y concientizar a la ciudadanía, realizado por Handshake.uy." />
+  <!-- Google Fonts: Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Variables de color para modo claro */
+    :root {
+      --bg-color: #f7f7f7;
+      --text-color: #333;
+      --heading-color: #222;
+      --highlight-color: #007acc;
+      --footer-text: #777;
+      --button-bg: #007acc;
+      --button-hover: #005f99;
+    }
+    /* Variables para modo oscuro, que se activarán al añadir la clase .dark-mode al body */
+    .dark-mode {
+      --bg-color: #121212;
+      --text-color: #ddd;
+      --heading-color: #fff;
+      --highlight-color: #66aaff;
+      --footer-text: #aaa;
+      --button-bg: #66aaff;
+      --button-hover: #5599dd;
+    }
     /* Reset básico */
     * {
       margin: 0;
@@ -19,35 +39,57 @@
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      color: #333;
+      background: var(--bg-color);
+      color: var(--text-color);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f7f7f7;
       padding: 20px;
       text-align: center;
+      transition: background 0.3s, color 0.3s;
     }
     .container {
-      max-width: 600px;
+      max-width: 700px;
     }
     h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #222;
+      color: var(--heading-color);
     }
     p {
       font-size: 1.125rem;
       margin-bottom: 2rem;
       line-height: 1.5;
     }
-    .coming-soon {
+    .highlight {
       font-weight: bold;
-      color: #007acc;
+      color: var(--highlight-color);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.3s;
+    }
+    .highlight:hover {
+      border-bottom: 1px solid var(--highlight-color);
     }
     footer {
       margin-top: 2rem;
       font-size: 0.875rem;
-      color: #777;
+      color: var(--footer-text);
+    }
+    /* Botón de modo oscuro/claro */
+    #darkModeToggle {
+      cursor: pointer;
+      background: var(--button-bg);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background 0.3s;
+      margin-bottom: 1.5rem;
+    }
+    #darkModeToggle:hover {
+      background: var(--button-hover);
     }
     /* Responsive */
     @media (max-width: 600px) {
@@ -62,12 +104,38 @@
 </head>
 <body>
   <div class="container">
+    <button id="darkModeToggle">Modo Oscuro</button>
     <h1>Marcó de Ciberseguridad</h1>
-    <p>Estamos trabajando en un proyecto innovador que revolucionará el mundo de la ciberseguridad. <span class="coming-soon">¡Próximamente!</span></p>
-    <!-- Puedes agregar aquí un formulario de suscripción o enlaces a redes sociales si lo deseas -->
+    <p>
+      Próximamente lanzaremos un proyecto innovador basado en el 
+      <a class="highlight" href="https://www.agesic.gub.uy" target="_blank" rel="noopener noreferrer">
+        Marco de Ciberseguridad de Uruguay (AGESIC)
+      </a>.
+      Nuestro objetivo es difundir y comunicar de forma clara y accesible los contenidos sobre ciberseguridad, para que cualquier ciudadano pueda comprender a qué se expone en el mundo digital.
+    </p>
+    <p>
+      ¡Únete a nosotros en esta emocionante travesía hacia un futuro digital seguro y confiable! Descubre cómo el 
+      <a class="highlight" href="https://www.agesic.gub.uy" target="_blank" rel="noopener noreferrer">
+        Marco de Ciberseguridad de Uruguay (AGESIC)
+      </a> 
+      revoluciona el panorama digital y te empodera para protegerte en la era de la información. ¡No te lo pierdas, lo mejor está por venir!
+    </p>
     <footer>
-      &copy; 2025 Marcó de Ciberseguridad. Todos los derechos reservados.
+     H4NDSHAKE &copy; 2025 Marco de Ciberseguridad. Todos los derechos reservados. H4NDSHAKE
     </footer>
   </div>
+
+  <script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      // Actualiza el texto del botón según el modo
+      if (document.body.classList.contains('dark-mode')) {
+        toggleButton.textContent = 'Modo Claro';
+      } else {
+        toggleButton.textContent = 'Modo Oscuro';
+      }
+    });
+  </script>
 </body>
 </html>
