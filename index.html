@@ -18,17 +18,23 @@
       --button-bg: #007acc;
       --button-hover: #005f99;
       --hero-overlay: rgba(0, 0, 0, 0.3);
+      /* Variables para el toggle button en modo claro */
+      --toggle-bg: #9c27b0;       /* morado */
+      --toggle-hover: #7b1fa2;
     }
     /* Variables para modo oscuro */
     .dark-mode {
       --bg-color: #121212;
       --text-color: #e0e0e0;
       --heading-color: #ffffff;
-      --highlight-color: #03a9f4; /* azul más claro para contraste */
+      --highlight-color: #03a9f4; /* azul celeste */
       --footer-text: #bbbbbb;
       --button-bg: #03a9f4;
       --button-hover: #0288d1;
       --hero-overlay: rgba(0, 0, 0, 0.7);
+      /* Variables para el toggle button en modo oscuro */
+      --toggle-bg: #ff5722;       /* naranja */
+      --toggle-hover: #e64a19;
     }
     /* Reset básico */
     * {
@@ -51,12 +57,12 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Botón para alternar modo */
+    /* Botón para alternar modo (toggle) */
     #darkModeToggle {
       position: fixed;
       top: 20px;
       right: 20px;
-      background: var(--button-bg);
+      background: var(--toggle-bg);
       border: none;
       color: #fff;
       width: 40px;
@@ -71,7 +77,7 @@
       z-index: 1000;
     }
     #darkModeToggle:hover {
-      background: var(--button-hover);
+      background: var(--toggle-hover);
     }
     /* Sección Hero */
     .hero {
@@ -85,15 +91,13 @@
       padding: 0 20px;
       transition: filter 0.3s;
     }
-    /* En modo oscuro se reduce el brillo de la imagen */
     .dark-mode .hero {
       filter: brightness(0.8);
     }
     .hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
       background: var(--hero-overlay);
@@ -164,7 +168,9 @@
         <a class="highlight" href="https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/comunicacion/publicaciones/marco-ciberseguridad" target="_blank" rel="noopener noreferrer">Marco de Ciberseguridad</a><br>
         para difundir sus contenidos de forma clara y accesible, empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
       </p>
-      <button class="cta-button" onclick="window.location.href='mailto:info@handshake.uy?subject=S%C3%BAmate%20y%20Colabora%20-%20Proyecto%20de%20Ciberseguridad'">Infórmate y súmate al proyecto</button>
+      <button class="cta-button" onclick="window.location.href='mailto:info@handshake.uy?subject=S%C3%BAmate%20y%20Colabora%20-%20Proyecto%20de%20Ciberseguridad'">
+        Infórmate y súmate al proyecto
+      </button>
     </div>
   </div>
   
