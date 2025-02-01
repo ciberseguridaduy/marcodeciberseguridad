@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marco de Ciberseguridad</title>
-  <meta name="description" content="Próximamente: Proyecto basado en el marco de ciberseguridad de Uruguay para difundir contenidos de ciberseguridad de forma clara y accesible, empoderando a empresas y ciudadanos. Realizado por Handshake.uy." />
+  <meta name="description" content="Próximamente: Proyecto basado en el marco de ciberseguridad de Uruguay para difundir contenidos de ciberseguridad de forma clara y accesible, empoderando a empresas y ciudadanos. Impulsado por Handshake.uy.">
   <!-- Google Fonts: Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Variables de color para modo claro */
+    /* Variables y configuraciones generales */
     :root {
       --bg-color: #f7f7f7;
       --text-color: #333;
@@ -17,8 +17,8 @@
       --footer-text: #777;
       --button-bg: #007acc;
       --button-hover: #005f99;
+      --hero-overlay: rgba(0, 0, 0, 0.5);
     }
-    /* Variables para modo oscuro */
     .dark-mode {
       --bg-color: #121212;
       --text-color: #ddd;
@@ -27,64 +27,33 @@
       --footer-text: #aaa;
       --button-bg: #66aaff;
       --button-hover: #5599dd;
+      --hero-overlay: rgba(0, 0, 0, 0.6);
     }
-    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-    html, body {
-      height: 100%;
     }
     body {
       font-family: 'Montserrat', sans-serif;
       background: var(--bg-color);
       color: var(--text-color);
       transition: background 0.3s, color 0.3s;
-      padding: 20px;
-    }
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 0 20px;
-      text-align: left;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--heading-color);
-      text-align: center;
-    }
-    p {
-      font-size: 1.125rem;
-      margin-bottom: 2rem;
       line-height: 1.6;
-      text-align: justify;
     }
-    .highlight {
-      font-weight: bold;
+    a {
       color: var(--highlight-color);
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-bottom 0.3s;
+      transition: color 0.3s;
     }
-    .highlight:hover {
-      border-bottom: 1px solid var(--highlight-color);
+    a:hover {
+      text-decoration: underline;
     }
-    footer {
-      margin-top: 2rem;
-      font-size: 0.875rem;
-      color: var(--footer-text);
-      text-align: center;
-      padding: 10px 0;
-      border-top: 1px solid var(--footer-text);
-    }
-    /* Botón de modo oscuro/claro minimalista */
+    /* Botón minimalista de modo oscuro/claro */
     #darkModeToggle {
       position: fixed;
-      top: 10px;
-      right: 10px;
+      top: 20px;
+      right: 20px;
       background: var(--button-bg);
       border: none;
       color: #fff;
@@ -102,43 +71,95 @@
     #darkModeToggle:hover {
       background: var(--button-hover);
     }
-    /* Ajustes para móviles */
+    /* Hero Section con fondo, overlay y contenido centrado */
+    .hero {
+      background: url("https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat center center/cover;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--hero-overlay);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #fff;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 40px;
+    }
+    .cta-button {
+      background: var(--button-bg);
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background: var(--button-hover);
+    }
+    /* Footer invitación a colaborar */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: var(--footer-text);
+      border-top: 1px solid var(--footer-text);
+    }
+    /* Responsive: Ajustes para móviles */
     @media (max-width: 600px) {
-      h1 {
+      .hero h1 {
         font-size: 2rem;
       }
-      p {
+      .hero p {
         font-size: 1rem;
-        margin-bottom: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
   <button id="darkModeToggle" aria-label="Alternar modo oscuro/ligero">🌙</button>
-  <div class="container">
-    <h1>Marco de Ciberseguridad</h1>
-    <p>
-      Siendo nuestra referencia el 
-      <a class="highlight" href="https://www.agesic.gub.uy" target="_blank" rel="noopener noreferrer">
-        marco de ciberseguridad de Uruguay
-      </a>.
-      Nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
-    </p>
-    <footer>
-      Proyecto impulsado por Handshake.uy – ¡Súmate y colabora para hacer de la ciberseguridad una realidad para todos!
-    </footer>
+  
+  <!-- Sección Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Marco de Ciberseguridad</h1>
+      <p>
+        Siendo nuestra referencia el <a class="highlight" href="https://www.agesic.gub.uy" target="_blank" rel="noopener noreferrer">marco de ciberseguridad de Uruguay</a>. Nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
+      </p>
+      <button class="cta-button">¡Súmate y Colabora!</button>
+    </div>
+  </div>
+  
+  <!-- Footer con invitación a la colaboración -->
+  <div class="footer">
+    Proyecto impulsado por Handshake.uy – ¡Súmate y colabora para hacer de la ciberseguridad una realidad para todos!
   </div>
 
   <script>
-    // Actualiza dinámicamente el año en el footer si lo deseas en algún momento:
-    // document.getElementById('currentYear').textContent = new Date().getFullYear();
-
     // Funcionalidad de modo oscuro/claro
     const toggleButton = document.getElementById('darkModeToggle');
     toggleButton.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      // Cambiar el icono según el modo actual: 🌙 para modo claro, ☀️ para modo oscuro
       toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
   </script>
