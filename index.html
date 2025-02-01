@@ -41,23 +41,26 @@
       font-family: 'Montserrat', sans-serif;
       background: var(--bg-color);
       color: var(--text-color);
-      padding: 20px;
-      text-align: center;
       transition: background 0.3s, color 0.3s;
+      padding: 20px;
     }
     .container {
       max-width: 700px;
       margin: 0 auto;
+      padding: 0 20px;
+      text-align: left; /* Alineación izquierda para mejorar la lectura en móvil */
     }
     h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
       color: var(--heading-color);
+      text-align: center;
     }
     p {
       font-size: 1.125rem;
       margin-bottom: 2rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      text-align: justify;
     }
     .highlight {
       font-weight: bold;
@@ -73,6 +76,7 @@
       margin-top: 2rem;
       font-size: 0.875rem;
       color: var(--footer-text);
+      text-align: center;
     }
     /* Botón de modo oscuro/claro minimalista */
     #darkModeToggle {
@@ -103,6 +107,7 @@
       }
       p {
         font-size: 1rem;
+        margin-bottom: 1.5rem;
       }
     }
   </style>
@@ -116,8 +121,7 @@
       <a class="highlight" href="https://www.agesic.gub.uy" target="_blank" rel="noopener noreferrer">
         marco de ciberseguridad de Uruguay
       </a>.
-      nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, 
-      empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
+      Nuestro objetivo es difundir sus contenidos de ciberseguridad de forma clara y accesible, empoderando a empresas y ciudadanos para comprender, aplicar y gestionar eficazmente la seguridad de la información.
     </p>
     <footer>
       &copy; <span id="currentYear"></span> Marco de Ciberseguridad. Todos los derechos reservados. Proyecto realizado por Handshake.uy.
