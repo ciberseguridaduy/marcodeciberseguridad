@@ -51,7 +51,7 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Botón de alternar modo (toggle) - fondo siempre negro */
+    /* Botón de alternar modo (toggle) siempre con fondo negro */
     #darkModeToggle {
       position: fixed;
       top: 20px;
@@ -59,10 +59,10 @@
       background: #000000;
       border: none;
       color: #fff;
-      width: 40px;
+      width: 60px;
       height: 40px;
-      border-radius: 50%;
-      font-size: 1.2rem;
+      border-radius: 4px;
+      font-size: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -71,7 +71,7 @@
       z-index: 1000;
     }
     #darkModeToggle:hover {
-      background: #000000; /* permanece negro en hover */
+      background: #000000;
     }
     /* Sección Hero */
     .hero {
@@ -91,7 +91,8 @@
     .hero::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
+      top: 0; 
+      left: 0;
       width: 100%;
       height: 100%;
       background: var(--hero-overlay);
@@ -151,7 +152,8 @@
   </style>
 </head>
 <body>
-  <button id="darkModeToggle" aria-label="Alternar modo oscuro/ligero">🌙</button>
+  <!-- Botón toggle con icono SVG -->
+  <button id="darkModeToggle" aria-label="Alternar modo claro/oscuro"></button>
   
   <!-- Sección Hero -->
   <div class="hero">
@@ -175,11 +177,35 @@
   </div>
 
   <script>
-    // Alterna entre modo claro y oscuro
+    // Iconos SVG para el toggle
+    const sunIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M6.995 12c0 2.761 2.246 5.005 5.005 5.005s5.005-2.244 5.005-5.005c0-2.761-2.246-5.005-5.005-5.005S6.995 9.239 6.995 12zM12 2c.552 0 1 .448 1 1v2c0 .552-.448 1-1 1s-1-.448-1-1V3c0-.552.448-1 1-1zM12 18c.552 0 1 .448 1 1v2c0 .552-.448 1-1 1s-1-.448-1-1v-2c0-.552.448-1 1-1zM4.222 4.222c.391.391 1.023.391 1.414 0l1.414-1.414a1 1 0 00-1.414-1.414L4.222 2.808a1 1 0 000 1.414zM16.95 16.95a1 1 0 001.414 0l1.414-1.414a1 1 0 10-1.414-1.414l-1.414 1.414a1 1 0 000 1.414zM2 13c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm20 0c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm-16.95 4.95a1 1 0 001.414 0l1.414-1.414a1 1 0 10-1.414-1.414L4.05 16.536a1 1 0 000 1.414zM19.778 4.222a1 1 0 010 1.414l-1.414 1.414a1 1 0 11-1.414-1.414l1.414-1.414a1 1 0 011.414 0z"/>
+    </svg>`;
+    const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M21.752 15.002A9 9 0 1112.998 3a7 7 0 008.754 12.002z"/>
+    </svg>`;
+    
+    // Referencia al botón toggle
     const toggleButton = document.getElementById('darkModeToggle');
+    
+    // Función para actualizar el icono según el modo
+    function updateToggleIcon() {
+      if (document.body.classList.contains('dark-mode')) {
+        // En modo oscuro, mostramos el icono del sol para indicar "volver a claro"
+        toggleButton.innerHTML = sunIcon;
+      } else {
+        // En modo claro, mostramos el icono de luna para indicar "activar oscuro"
+        toggleButton.innerHTML = moonIcon;
+      }
+    }
+    
+    // Inicializar el icono al cargar la página
+    updateToggleIcon();
+    
+    // Alterna entre modo claro y oscuro y actualiza el icono
     toggleButton.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+      updateToggleIcon();
     });
   </script>
 </body>
